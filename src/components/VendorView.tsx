@@ -141,15 +141,15 @@ export const VendorView: React.FC = () => {
       case 'booked':
         return vendor.payments.length === 0
           ? 'bg-amber-100 text-amber-800 border border-amber-200 font-medium'
-          : 'bg-stone-900 text-white font-medium';
+          : 'bg-emerald-800 text-white font-medium';
       case 'paid':
         return 'bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium';
       case 'negotiation':
-        return 'bg-stone-100 text-stone-800 border border-stone-200';
+        return 'bg-white/60 text-stone-800 border border-white/60';
       case 'contacted':
-        return 'bg-stone-50 text-stone-700 border border-stone-200';
+        return 'bg-white/50 text-stone-700 border border-white/60';
       case 'research':
-        return 'bg-stone-50 text-stone-500 border border-stone-200';
+        return 'bg-white/50 text-stone-500 border border-white/60';
       case 'cancelled':
         return 'bg-rose-50 text-rose-700 border border-rose-200';
       default:
@@ -179,7 +179,7 @@ export const VendorView: React.FC = () => {
   return (
     <div className="space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="bg-white border border-stone-200 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+      <div className="glass-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-mono uppercase tracking-wider text-stone-500 font-medium">
@@ -199,7 +199,7 @@ export const VendorView: React.FC = () => {
         <button
           type="button"
           onClick={handleOpenAddVendorModal}
-          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 sm:py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-lg shadow-sm transition-all active:scale-[0.98] w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 sm:py-2 bg-emerald-800 hover:bg-emerald-700 text-white shadow-xs text-xs font-semibold rounded-lg shadow-sm transition-all active:scale-[0.98] w-full sm:w-auto"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Vendor</span>
@@ -219,14 +219,14 @@ export const VendorView: React.FC = () => {
               onClick={() => setSelectedStatusTab(s.id)}
               className={`px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center gap-2 ${
                 selectedStatusTab === s.id
-                  ? 'bg-stone-900 text-white'
-                  : 'bg-white hover:bg-stone-100 text-stone-600 border border-stone-200'
+                  ? 'bg-emerald-800 text-white'
+                  : 'bg-white/60 hover:bg-white/85 text-stone-600 border border-white/60'
               }`}
             >
               <span>{s.label}</span>
               <span
                 className={`text-[10px] font-mono px-1.5 py-0.2 rounded ${
-                  selectedStatusTab === s.id ? 'bg-stone-800 text-stone-200' : 'bg-stone-100 text-stone-600'
+                  selectedStatusTab === s.id ? 'bg-emerald-900 text-emerald-100' : 'bg-stone-100 text-stone-600'
                 }`}
               >
                 {count}
@@ -239,7 +239,7 @@ export const VendorView: React.FC = () => {
       {/* MOBILE CARDS VIEW: Nyaman & Responsif untuk HP */}
       <div className="md:hidden space-y-3">
         {filteredVendors.length === 0 ? (
-          <div className="bg-white border border-stone-200 rounded-xl p-8 text-center text-xs text-stone-400">
+          <div className="glass-card rounded-xl p-8 text-center text-xs text-stone-400">
             Tidak ada vendor pada tahapan ini.
           </div>
         ) : (
@@ -251,7 +251,7 @@ export const VendorView: React.FC = () => {
             return (
               <div
                 key={vendor.id}
-                className="bg-white border border-stone-200 rounded-xl p-4 space-y-3 shadow-xs"
+                className="glass-card rounded-xl p-4 space-y-3"
               >
                 {/* Header: Name, Category, Status */}
                 <div className="flex items-start justify-between gap-2">
@@ -279,7 +279,7 @@ export const VendorView: React.FC = () => {
                 </div>
 
                 {/* Contact info row if available */}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-stone-600 bg-stone-50/70 p-2 rounded-lg border border-stone-200/80">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-stone-600 glass-inset p-2 rounded-lg">
                   <div className="flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5 text-stone-400" />
                     <span>
@@ -303,7 +303,7 @@ export const VendorView: React.FC = () => {
                 </div>
 
                 {/* Financial 3-column stats mini-grid */}
-                <div className="grid grid-cols-3 gap-1.5 text-center font-mono bg-stone-50 p-2.5 rounded-lg border border-stone-200/80">
+                <div className="grid grid-cols-3 gap-1.5 text-center font-mono glass-inset p-2.5 rounded-lg">
                   <div>
                     <div className="text-[9px] uppercase font-sans text-stone-400">Kontrak</div>
                     <div className="font-bold text-stone-900 text-xs sm:text-sm mt-0.5 truncate">
@@ -330,7 +330,7 @@ export const VendorView: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => handleOpenPaymentModal(vendor)}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-semibold shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-pink-600 hover:bg-pink-700 text-white shadow-2xs rounded-lg text-xs font-semibold shadow-2xs transition-colors"
                   >
                     <DollarSign className="w-3.5 h-3.5" />
                     <span>+ Bayar Termin</span>
@@ -364,10 +364,10 @@ export const VendorView: React.FC = () => {
       </div>
 
       {/* DESKTOP TABLE VIEW: Rapi & Komprehensif untuk Layar Lebar */}
-      <div className="hidden md:block bg-white border border-stone-200 rounded-xl overflow-hidden shadow-xs">
+      <div className="hidden md:block glass-strong rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-stone-50 border-b border-stone-200 text-stone-500 uppercase font-mono text-[10px]">
+            <thead className="bg-white/50 border-b border-white/60 text-stone-500 uppercase font-mono text-[10px]">
               <tr>
                 <th className="py-3 px-4 font-semibold">Vendor & Pos Kategori</th>
                 <th className="py-3 px-4 font-semibold">Kontak / PIC</th>
@@ -491,16 +491,16 @@ export const VendorView: React.FC = () => {
 
       {/* MODAL: Tambah / Ubah Vendor */}
       {isVendorModalOpen && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-stone-200/60">
               <h3 className="font-bold text-stone-900 text-sm sm:text-base">
                 {editingVendor ? 'Ubah Informasi Vendor' : 'Tambah Vendor Baru'}
               </h3>
               <button
                 type="button"
                 onClick={() => setIsVendorModalOpen(false)}
-                className="p-1 rounded text-stone-400 hover:text-stone-700"
+                className="p-1 rounded text-stone-400 hover:text-stone-700 transition-colors"
                 aria-label="Tutup Modal"
               >
                 <X className="w-4 h-4" />
@@ -515,7 +515,7 @@ export const VendorView: React.FC = () => {
                   value={vName}
                   onChange={(e) => setVName(e.target.value)}
                   placeholder="Contoh: Sanggar Rias Anggun Kemala"
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                   required
                 />
               </div>
@@ -526,7 +526,7 @@ export const VendorView: React.FC = () => {
                   <select
                     value={vCategoryId}
                     onChange={(e) => setVCategoryId(e.target.value)}
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                   >
                     {budgetCategories.map((cat) => (
                       <option key={cat.id} value={cat.id}>
@@ -541,7 +541,7 @@ export const VendorView: React.FC = () => {
                   <select
                     value={vStatus}
                     onChange={(e) => setVStatus(e.target.value as VendorStatus)}
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                   >
                     <option value="research">Penjajakan Awal</option>
                     <option value="contacted">Sudah Dihubungi</option>
@@ -561,7 +561,7 @@ export const VendorView: React.FC = () => {
                     value={vContactPerson}
                     onChange={(e) => setVContactPerson(e.target.value)}
                     placeholder="Nama PIC"
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                   />
                 </div>
                 <div>
@@ -571,7 +571,7 @@ export const VendorView: React.FC = () => {
                     value={vPhone}
                     onChange={(e) => setVPhone(e.target.value)}
                     placeholder="0812..."
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                   />
                 </div>
               </div>
@@ -583,7 +583,7 @@ export const VendorView: React.FC = () => {
                   step={500000}
                   value={vContractValue}
                   onChange={(e) => setVContractValue(Number(e.target.value))}
-                  className="w-full px-3 py-2 font-mono text-sm border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 font-mono text-sm glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                   required
                 />
                 <div className="text-[11px] text-stone-500 font-mono mt-0.5">
@@ -598,11 +598,11 @@ export const VendorView: React.FC = () => {
                   value={vNotes}
                   onChange={(e) => setVNotes(e.target.value)}
                   placeholder="Detail paket, bonus, atau syarat pembatalan..."
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 />
               </div>
 
-              <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-2 pt-3 border-t border-stone-100">
+              <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-2 pt-3 border-t border-stone-200/60">
                 <button
                   type="button"
                   onClick={() => setIsVendorModalOpen(false)}
@@ -624,9 +624,9 @@ export const VendorView: React.FC = () => {
 
       {/* MODAL: Bayar Termin Vendor */}
       {isPaymentModalOpen && activeVendorForPayment && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-sm w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-stone-200/60">
               <div>
                 <h3 className="font-bold text-stone-900 text-sm sm:text-base">
                   Catat Pembayaran Termin
@@ -638,7 +638,7 @@ export const VendorView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsPaymentModalOpen(false)}
-                className="p-1 rounded text-stone-400 hover:text-stone-700"
+                className="p-1 rounded text-stone-400 hover:text-stone-700 transition-colors"
                 aria-label="Tutup Modal"
               >
                 <X className="w-4 h-4" />
@@ -652,7 +652,7 @@ export const VendorView: React.FC = () => {
                   <select
                     value={pType}
                     onChange={(e) => setPType(e.target.value as PaymentType)}
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                   >
                     <option value="dp1">DP 1 (Booking)</option>
                     <option value="dp2">DP 2 (Termin)</option>
@@ -666,7 +666,7 @@ export const VendorView: React.FC = () => {
                     type="date"
                     value={pDate}
                     onChange={(e) => setPDate(e.target.value)}
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white font-mono"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700 font-mono"
                     required
                   />
                 </div>
@@ -679,7 +679,7 @@ export const VendorView: React.FC = () => {
                   step={500000}
                   value={pAmount}
                   onChange={(e) => setPAmount(Number(e.target.value))}
-                  className="w-full px-3 py-2 font-mono text-sm border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 font-semibold"
+                  className="w-full px-3 py-2 font-mono text-sm glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700 font-semibold"
                   required
                 />
                 <div className="text-[11px] text-stone-500 font-mono mt-0.5">
@@ -694,7 +694,7 @@ export const VendorView: React.FC = () => {
                   value={pNotes}
                   onChange={(e) => setPNotes(e.target.value)}
                   placeholder="Contoh: Bukti Transfer BCA ref #8762"
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 />
               </div>
 

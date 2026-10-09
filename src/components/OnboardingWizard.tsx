@@ -109,10 +109,10 @@ export const OnboardingWizard: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-stone-50 flex flex-col justify-center items-center py-4 sm:py-12 px-3 sm:px-6">
-      <div className="max-w-xl w-full bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden relative">
+      <div className="max-w-xl w-full glass-card rounded-xl overflow-hidden relative">
         {/* Processing State */}
         {isProcessing && (
-          <div className="absolute inset-0 bg-white/95 z-50 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
+          <div className="absolute inset-0 glass-strong z-50 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
             <div className="w-8 h-8 rounded-full border-2 border-stone-300 border-t-stone-900 animate-spin mb-4" />
             <h3 className="text-sm font-semibold uppercase tracking-wider text-stone-900 mb-1">
               Menyiapkan Ruang Kerja
@@ -125,7 +125,7 @@ export const OnboardingWizard: React.FC = () => {
         )}
 
         {/* Wizard Header */}
-        <div className="border-b border-stone-200 p-4 sm:p-6 bg-stone-50/50">
+        <div className="glass-strong border-b p-4 sm:p-6">
           <div className="flex items-center justify-between mb-2 sm:mb-3">
             <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-stone-500 font-semibold">
               Inisialisasi Proyek
@@ -171,7 +171,7 @@ export const OnboardingWizard: React.FC = () => {
                     className={`p-3.5 sm:p-4 rounded-xl border text-left transition-all ${
                       eventType === 'wedding'
                         ? 'border-stone-900 bg-stone-50/80 ring-1 ring-stone-900 shadow-2xs'
-                        : 'border-stone-200 hover:border-stone-300 bg-white'
+                        : 'glass-input hover:border-white'
                     }`}
                   >
                     <div className="font-semibold text-stone-900 text-sm">Resepsi Pernikahan Lengkap</div>
@@ -186,7 +186,7 @@ export const OnboardingWizard: React.FC = () => {
                     className={`p-3.5 sm:p-4 rounded-xl border text-left transition-all ${
                       eventType === 'engagement'
                         ? 'border-stone-900 bg-stone-50/80 ring-1 ring-stone-900 shadow-2xs'
-                        : 'border-stone-200 hover:border-stone-300 bg-white'
+                        : 'glass-input hover:border-white'
                     }`}
                   >
                     <div className="font-semibold text-stone-900 text-sm">Acara Lamaran & Tunangan</div>
@@ -206,7 +206,7 @@ export const OnboardingWizard: React.FC = () => {
                     type="text"
                     value={ownerName}
                     onChange={(e) => setOwnerName(e.target.value)}
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                     required
                   />
                 </div>
@@ -218,7 +218,7 @@ export const OnboardingWizard: React.FC = () => {
                     type="text"
                     value={partnerName}
                     onChange={(e) => setPartnerName(e.target.value)}
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                     required
                   />
                 </div>
@@ -237,7 +237,7 @@ export const OnboardingWizard: React.FC = () => {
                   Tanggal ini menjadi dasar perhitungan otomatis seluruh jadwal tugas (H - X hari).
                 </p>
 
-                <div className="p-4 sm:p-5 bg-stone-50 border border-stone-200 rounded-xl">
+                <div className="p-4 sm:p-5 glass-inset rounded-xl">
                   <label className="block text-xs font-medium text-stone-700 mb-2">
                     Tanggal Pelaksanaan Acara:
                   </label>
@@ -245,7 +245,7 @@ export const OnboardingWizard: React.FC = () => {
                     type="date"
                     value={eventDate}
                     onChange={(e) => setEventDate(e.target.value)}
-                    className="w-full sm:w-auto px-3 py-2 text-sm sm:text-base font-mono border border-stone-300 rounded-lg bg-white focus:ring-1 focus:ring-stone-800 focus:outline-none font-medium"
+                    className="w-full sm:w-auto px-3 py-2 text-sm sm:text-base font-mono glass-input rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none font-medium"
                     required
                   />
                   <div className="text-[11px] text-stone-500 mt-3 leading-relaxed">
@@ -277,7 +277,7 @@ export const OnboardingWizard: React.FC = () => {
                       step={5000000}
                       value={totalBudget}
                       onChange={(e) => setTotalBudget(Number(e.target.value))}
-                      className="w-full pl-12 pr-4 py-2.5 text-base sm:text-lg font-bold font-mono text-stone-900 border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                      className="w-full pl-12 pr-4 py-2.5 text-base sm:text-lg font-bold font-mono text-stone-900 glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                     />
                   </div>
                   <div className="text-xs font-mono font-medium text-stone-700">
@@ -297,7 +297,7 @@ export const OnboardingWizard: React.FC = () => {
                           className={`px-3 py-1.5 text-xs font-mono rounded-lg border transition-colors ${
                             totalBudget === b.value
                               ? 'bg-stone-900 text-white border-stone-900'
-                              : 'bg-white hover:bg-stone-100 text-stone-700 border-stone-200'
+                              : 'bg-white/60 hover:bg-white/85 text-stone-700 border-white/60'
                           }`}
                         >
                           {b.label}
@@ -326,7 +326,7 @@ export const OnboardingWizard: React.FC = () => {
                     type="number"
                     value={estimatedGuests}
                     onChange={(e) => setEstimatedGuests(Number(e.target.value))}
-                    className="w-full px-3 py-2.5 text-base sm:text-lg font-bold font-mono text-stone-900 border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                    className="w-full px-3 py-2.5 text-base sm:text-lg font-bold font-mono text-stone-900 glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                   />
 
                   <div>
@@ -342,7 +342,7 @@ export const OnboardingWizard: React.FC = () => {
                           className={`px-3 py-1.5 text-xs font-mono rounded-lg border transition-colors ${
                             estimatedGuests === count
                               ? 'bg-stone-900 text-white border-stone-900'
-                              : 'bg-white hover:bg-stone-100 text-stone-700 border-stone-200'
+                              : 'bg-white/60 hover:bg-white/85 text-stone-700 border-white/60'
                           }`}
                         >
                           {count} pax
@@ -375,7 +375,7 @@ export const OnboardingWizard: React.FC = () => {
                       className={`w-full p-3 sm:p-3.5 rounded-xl border text-left transition-all flex items-center justify-between ${
                         theme === th.id
                           ? 'border-stone-900 bg-stone-50/80 ring-1 ring-stone-900 shadow-2xs'
-                          : 'border-stone-200 hover:border-stone-300 bg-white'
+                          : 'glass-input hover:border-white'
                       }`}
                     >
                       <div className="pr-2">
@@ -393,7 +393,7 @@ export const OnboardingWizard: React.FC = () => {
           )}
 
           {/* Controls */}
-          <div className="flex items-center justify-between pt-4 border-t border-stone-200 gap-2">
+          <div className="flex items-center justify-between pt-4 border-t border-white/60 gap-2">
             {step > 1 ? (
               <button
                 type="button"

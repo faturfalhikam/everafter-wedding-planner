@@ -500,7 +500,7 @@ export const BudgetIntelligenceView: React.FC = () => {
   return (
     <div className="space-y-4 sm:space-y-6">
       {/* 1. HEADER & ACTION BAR */}
-      <div className="bg-white border border-stone-200 rounded-xl p-4 sm:p-6 shadow-xs">
+      <div className="glass-card rounded-xl p-4 sm:p-6">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 sm:pb-5 border-b border-stone-100">
           <div>
             <div className="flex flex-wrap items-center gap-2">
@@ -529,7 +529,7 @@ export const BudgetIntelligenceView: React.FC = () => {
             <button
               type="button"
               onClick={() => handleOpenExpenseModal()}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-3.5 py-2.5 sm:py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-lg shadow-sm transition-all active:scale-[0.98]"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-3.5 py-2.5 sm:py-2 bg-emerald-800 hover:bg-emerald-700 text-white shadow-xs text-xs font-semibold rounded-lg shadow-sm transition-all active:scale-[0.98]"
             >
               <Plus className="w-4 h-4 text-white" />
               <span>+ Tambah Item / Belanja</span>
@@ -539,7 +539,7 @@ export const BudgetIntelligenceView: React.FC = () => {
             <button
               type="button"
               onClick={() => handleOpenAddCategoryModal()}
-              className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:py-2 bg-white hover:bg-stone-50 text-stone-700 text-xs font-medium border border-stone-300 rounded-lg shadow-2xs transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:py-2 glass-input hover:bg-white/80 text-stone-700 text-xs font-medium rounded-lg transition-colors"
             >
               <span>+ Pos Baru</span>
             </button>
@@ -561,7 +561,7 @@ export const BudgetIntelligenceView: React.FC = () => {
         <div className="pt-4 sm:pt-5">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
             {/* Target Total Anggaran */}
-            <div className="bg-stone-50/70 border border-stone-200 rounded-lg p-3 sm:p-4 relative overflow-hidden">
+            <div className="glass-inset rounded-lg p-3 sm:p-4 relative overflow-hidden">
               <div className="flex items-center justify-between text-[11px] sm:text-xs font-medium text-stone-500 mb-1">
                 <span>Target Anggaran</span>
                 <button
@@ -581,7 +581,7 @@ export const BudgetIntelligenceView: React.FC = () => {
             </div>
 
             {/* Sudah Dibayar (Realisasi Uang Keluar) */}
-            <div className="bg-stone-50/70 border border-stone-200 rounded-lg p-3 sm:p-4">
+            <div className="glass-inset rounded-lg p-3 sm:p-4">
               <div className="text-[11px] sm:text-xs font-medium text-stone-500 mb-1 flex items-center justify-between">
                 <span>Sudah Dibayar</span>
                 <span className="text-[9px] sm:text-[10px] font-mono bg-emerald-100/70 text-emerald-800 px-1 py-0.5 rounded font-medium">
@@ -597,7 +597,7 @@ export const BudgetIntelligenceView: React.FC = () => {
             </div>
 
             {/* Belum Dibayar (Komitmen & Rencana Belanja) */}
-            <div className="bg-stone-50/70 border border-stone-200 rounded-lg p-3 sm:p-4">
+            <div className="glass-inset rounded-lg p-3 sm:p-4">
               <div className="text-[11px] sm:text-xs font-medium text-stone-500 mb-1 flex items-center justify-between">
                 <span>Belum Dibayar</span>
                 <span className="text-[9px] sm:text-[10px] font-mono bg-amber-100/70 text-amber-800 px-1 py-0.5 rounded font-medium">
@@ -709,15 +709,15 @@ export const BudgetIntelligenceView: React.FC = () => {
       </div>
 
       {/* 3. PANDUAN PINTAR & TIPS CALON PENGANTIN */}
-      <div className="bg-gradient-to-r from-stone-50 via-white to-stone-50 border border-stone-200/90 rounded-xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-emerald-50/60 via-pink-50/40 to-emerald-50/60 border border-emerald-200/60 rounded-xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
-          <div className="p-2 bg-stone-900 text-white rounded-lg shrink-0 mt-0.5">
-            <Sparkles className="w-4 h-4 text-amber-300" />
+          <div className="p-2 bg-emerald-800 text-white rounded-lg shrink-0 mt-0.5">
+            <Sparkles className="w-4 h-4 text-pink-300" />
           </div>
           <div>
             <div className="text-xs font-semibold text-stone-900 flex flex-wrap items-center gap-2">
               <span>Konsep Budgeting Fleksibel</span>
-              <span className="text-[10px] font-mono bg-stone-200 text-stone-700 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-mono bg-pink-100 text-pink-800 px-2 py-0.5 rounded-full font-medium">
                 {itemsStats.unpaidCount} Item Belum Bayar
               </span>
             </div>
@@ -748,7 +748,7 @@ export const BudgetIntelligenceView: React.FC = () => {
       </div>
 
       {/* 4. POS RENCANA BIAYA (RESPONSIVE CARDS PADA MOBILE, TABEL PADA DESKTOP) */}
-      <div className="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-xs">
+      <div className="glass-strong rounded-xl overflow-hidden">
         {/* Table Controls Header */}
         <div className="p-4 sm:p-5 border-b border-stone-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
@@ -767,7 +767,7 @@ export const BudgetIntelligenceView: React.FC = () => {
               onClick={() => setCategoryFilterTab('all')}
               className={`px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
                 categoryFilterTab === 'all'
-                  ? 'bg-stone-900 text-white'
+                  ? 'bg-emerald-800 text-white'
                   : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
               }`}
             >
@@ -778,7 +778,7 @@ export const BudgetIntelligenceView: React.FC = () => {
               onClick={() => setCategoryFilterTab('unpaid')}
               className={`px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
                 categoryFilterTab === 'unpaid'
-                  ? 'bg-stone-900 text-white'
+                  ? 'bg-emerald-800 text-white'
                   : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
               }`}
             >
@@ -789,7 +789,7 @@ export const BudgetIntelligenceView: React.FC = () => {
               onClick={() => setCategoryFilterTab('over')}
               className={`px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
                 categoryFilterTab === 'over'
-                  ? 'bg-rose-900 text-white'
+                  ? 'bg-rose-600 text-white shadow-xs'
                   : 'bg-rose-50 hover:bg-rose-100 text-rose-700'
               }`}
             >
@@ -911,7 +911,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => handleOpenExpenseModal(item.category)}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 bg-stone-900 text-white rounded text-[11px] font-medium transition-colors"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-800 text-white rounded text-[11px] font-medium transition-colors"
                       >
                         <Plus className="w-3 h-3" />
                         <span>+ Item</span>
@@ -954,7 +954,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       </div>
 
                       {item.vendors.length === 0 ? (
-                        <div className="py-3 text-center text-xs text-stone-400 bg-white rounded border border-dashed border-stone-200">
+                        <div className="py-3 text-center text-xs text-stone-400 glass-inset rounded border border-dashed">
                           Belum ada item belanja. Klik &quot;+ Item&quot; untuk menambahkan.
                         </div>
                       ) : (
@@ -970,7 +970,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                             return (
                               <div
                                 key={v.id}
-                                className="p-3 bg-white rounded-lg border border-stone-200 space-y-2"
+                                className="p-3 glass-inset rounded-lg space-y-2"
                               >
                                 <div className="flex items-start justify-between gap-2">
                                   <div className="min-w-0">
@@ -987,7 +987,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                                       Lunas
                                     </span>
                                   ) : isPartial ? (
-                                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200 shrink-0">
+                                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-pink-50 text-pink-800 border border-pink-200 shrink-0">
                                       DP
                                     </span>
                                   ) : (
@@ -997,7 +997,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                                   )}
                                 </div>
 
-                                <div className="flex items-center justify-between text-[11px] text-stone-600 font-mono bg-stone-50 p-2 rounded">
+                                <div className="flex items-center justify-between text-[11px] text-stone-600 font-mono glass-inset p-2 rounded">
                                   <div>
                                     <span className="text-stone-400 text-[10px] block">Target</span>
                                     <span>{formatCurrency(vBudget)}</span>
@@ -1028,7 +1028,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                                       <button
                                         type="button"
                                         onClick={() => handleOpenSettleModal(v)}
-                                        className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-700 hover:bg-emerald-800 text-white rounded text-[11px] font-medium"
+                                        className="inline-flex items-center gap-1 px-2 py-1 bg-pink-600 hover:bg-pink-700 text-white shadow-xs rounded text-[11px] font-medium"
                                       >
                                         <DollarSign className="w-3 h-3" />
                                         <span>Bayar</span>
@@ -1224,7 +1224,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => handleOpenExpenseModal(item.category)}
-                              className="inline-flex items-center gap-1 px-2.5 py-1 bg-stone-900 hover:bg-stone-800 text-white rounded text-[11px] font-medium shadow-2xs transition-colors"
+                              className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-800 hover:bg-emerald-700 text-white shadow-xs rounded text-[11px] font-medium shadow-2xs transition-colors"
                               title="Tambah Item Belanja / Catat Bayar di Pos ini"
                             >
                               <Plus className="w-3 h-3" />
@@ -1276,11 +1276,11 @@ export const BudgetIntelligenceView: React.FC = () => {
                             </div>
 
                             {item.vendors.length === 0 ? (
-                              <div className="py-4 text-center text-xs text-stone-400 bg-white rounded border border-dashed border-stone-200">
+                              <div className="py-4 text-center text-xs text-stone-400 glass-inset rounded border border-dashed">
                                 Belum ada item belanja atau vendor terdaftar di pos ini. Klik tombol &quot;+ Tambah Item&quot; di atas untuk merencanakan belanjaan.
                               </div>
                             ) : (
-                              <div className="bg-white rounded-lg border border-stone-200 divide-y divide-stone-100 overflow-hidden text-xs">
+                              <div className="glass-strong rounded-lg divide-y divide-stone-100 overflow-hidden text-xs">
                                 {item.vendors.map((v) => {
                                   const vPaid = v.payments.reduce((s, p) => s + p.amount, 0);
                                   const vBudget = v.estimatedBudget || v.totalContractValue;
@@ -1303,7 +1303,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                                               Sudah Dibayar (Lunas)
                                             </span>
                                           ) : isPartial ? (
-                                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-pink-50 text-pink-800 border border-pink-200">
                                               DP / Bertahap
                                             </span>
                                           ) : (
@@ -1388,7 +1388,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                                             <button
                                               type="button"
                                               onClick={() => handleOpenSettleModal(v)}
-                                              className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-700 hover:bg-emerald-800 text-white rounded font-medium text-[11px] transition-colors shadow-2xs"
+                                              className="inline-flex items-center gap-1 px-2.5 py-1 bg-pink-600 hover:bg-pink-700 text-white shadow-xs rounded font-medium text-[11px] transition-colors shadow-2xs"
                                               title="Update Status Sudah Dibayar"
                                             >
                                               <DollarSign className="w-3 h-3" />
@@ -1469,7 +1469,7 @@ export const BudgetIntelligenceView: React.FC = () => {
       </div>
 
       {/* 5. TABS: DAFTAR SEMUA ITEM RENCANA & BELANJA VS BUKU KAS MUTASI */}
-      <div className="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 space-y-4 shadow-xs">
+      <div className="glass-card rounded-xl p-4 sm:p-5 space-y-4">
         {/* Tab Navigation Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-stone-100">
           <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
@@ -1478,7 +1478,7 @@ export const BudgetIntelligenceView: React.FC = () => {
               onClick={() => setSection5Tab('items')}
               className={`inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
                 section5Tab === 'items'
-                  ? 'bg-stone-900 text-white'
+                  ? 'bg-emerald-800 text-white'
                   : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
               }`}
             >
@@ -1491,7 +1491,7 @@ export const BudgetIntelligenceView: React.FC = () => {
               onClick={() => setSection5Tab('cashflow')}
               className={`inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
                 section5Tab === 'cashflow'
-                  ? 'bg-stone-900 text-white'
+                  ? 'bg-emerald-800 text-white'
                   : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
               }`}
             >
@@ -1503,7 +1503,7 @@ export const BudgetIntelligenceView: React.FC = () => {
           <button
             type="button"
             onClick={() => handleOpenExpenseModal()}
-            className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-lg text-xs font-medium transition-colors w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-emerald-800 hover:bg-emerald-700 text-white shadow-xs rounded-lg text-xs font-medium transition-colors w-full sm:w-auto"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>+ Tambah Item / Belanja</span>
@@ -1523,7 +1523,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   value={itemsSearch}
                   onChange={(e) => setItemsSearch(e.target.value)}
                   placeholder="Cari item belanja..."
-                  className="w-full pl-9 pr-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                  className="w-full pl-9 pr-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 />
               </div>
 
@@ -1532,7 +1532,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 <select
                   value={itemsFilterStatus}
                   onChange={(e) => setItemsFilterStatus(e.target.value as 'all' | 'unpaid' | 'dp' | 'paid')}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 >
                   <option value="all">Semua Status Item ({allItemsWithAnalysis.length})</option>
                   <option value="unpaid">Belum Dibayar ({itemsStats.unpaidCount})</option>
@@ -1546,7 +1546,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 <select
                   value={itemsCategoryFilter}
                   onChange={(e) => setItemsCategoryFilter(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 >
                   <option value="all">Semua Pos Kategori</option>
                   {budgetCategories.map((cat) => (
@@ -1560,14 +1560,14 @@ export const BudgetIntelligenceView: React.FC = () => {
 
             {/* List of Budget Items */}
             {filteredItems.length === 0 ? (
-              <div className="py-10 text-center text-xs text-stone-400 bg-stone-50/50 rounded-lg border border-dashed border-stone-200">
+              <div className="py-10 text-center text-xs text-stone-400 glass-inset rounded-lg border border-dashed">
                 {allItemsWithAnalysis.length === 0 ? (
                   <div className="space-y-2">
                     <p>Belum ada item belanja atau vendor yang ditambahkan.</p>
                     <button
                       type="button"
                       onClick={() => handleOpenExpenseModal()}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-900 text-white rounded text-xs font-medium"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-800 text-white rounded text-xs font-medium"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>Tambah Item Belanja Pertama</span>
@@ -1590,7 +1590,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                           item.itemStatus === 'paid'
                             ? 'bg-emerald-100 text-emerald-700'
                             : item.itemStatus === 'dp'
-                            ? 'bg-blue-100 text-blue-700'
+                            ? 'bg-pink-100 text-pink-700'
                             : 'bg-amber-100 text-amber-700'
                         }`}
                       >
@@ -1616,7 +1616,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                               Lunas
                             </span>
                           ) : item.itemStatus === 'dp' ? (
-                            <span className="text-[10px] font-medium px-2 py-0.2 rounded-full bg-blue-50 text-blue-800 border border-blue-200">
+                            <span className="text-[10px] font-medium px-2 py-0.2 rounded-full bg-pink-50 text-pink-800 border border-pink-200">
                               DP
                             </span>
                           ) : (
@@ -1681,7 +1681,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => handleOpenSettleModal(item)}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg font-medium text-xs shadow-2xs transition-colors"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 bg-pink-600 hover:bg-pink-700 text-white shadow-xs rounded-lg font-medium text-xs shadow-2xs transition-colors"
                           title="Update Status Sudah Dibayar"
                         >
                           <DollarSign className="w-3.5 h-3.5" />
@@ -1731,7 +1731,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   value={ledgerSearch}
                   onChange={(e) => setLedgerSearch(e.target.value)}
                   placeholder="Cari transaksi / kuitansi..."
-                  className="w-full pl-9 pr-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                  className="w-full pl-9 pr-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 />
               </div>
 
@@ -1740,7 +1740,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 <select
                   value={ledgerCategoryFilter}
                   onChange={(e) => setLedgerCategoryFilter(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 >
                   <option value="all">Semua Pos Biaya</option>
                   {budgetCategories.map((cat) => (
@@ -1756,7 +1756,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 <select
                   value={ledgerTypeFilter}
                   onChange={(e) => setLedgerTypeFilter(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-800 bg-white"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-700"
                 >
                   <option value="all">Semua Jenis Pembayaran</option>
                   <option value="dp1">DP 1 (Uang Muka Pemesanan)</option>
@@ -1769,14 +1769,14 @@ export const BudgetIntelligenceView: React.FC = () => {
 
             {/* List of Disbursements */}
             {filteredDisbursements.length === 0 ? (
-              <div className="py-10 text-center text-xs text-stone-400 bg-stone-50/50 rounded-lg border border-dashed border-stone-200">
+              <div className="py-10 text-center text-xs text-stone-400 glass-inset rounded-lg border border-dashed">
                 {allDisbursements.length === 0 ? (
                   <div className="space-y-2">
                     <p>Belum ada catatan pembayaran atau pengeluaran kas.</p>
                     <button
                       type="button"
                       onClick={() => handleOpenExpenseModal()}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-900 text-white rounded text-xs font-medium"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-800 text-white rounded text-xs font-medium"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>Catat Pengeluaran Pertama</span>
@@ -1859,8 +1859,8 @@ export const BudgetIntelligenceView: React.FC = () => {
       {/* MODAL 1: TAMBAH ITEM RENCANA / CATAT BELANJA (BUDGETING) */}
       {/* ======================================================== */}
       {isExpenseModalOpen && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-lg w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-lg w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-stone-100">
               <div>
                 <h3 className="font-bold text-stone-900 text-sm sm:text-base">
@@ -1887,7 +1887,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 onClick={() => setExpenseTab('direct')}
                 className={`py-2 px-2 sm:px-3 text-xs font-semibold rounded-md transition-all flex items-center justify-center gap-1.5 ${
                   expenseTab === 'direct'
-                    ? 'bg-white text-stone-900 shadow-2xs'
+                    ? 'glass-inset text-stone-900 shadow-2xs'
                     : 'text-stone-600 hover:text-stone-900'
                 }`}
               >
@@ -1899,7 +1899,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 onClick={() => setExpenseTab('vendor')}
                 className={`py-2 px-2 sm:px-3 text-xs font-semibold rounded-md transition-all flex items-center justify-center gap-1.5 ${
                   expenseTab === 'vendor'
-                    ? 'bg-white text-stone-900 shadow-2xs'
+                    ? 'glass-inset text-stone-900 shadow-2xs'
                     : 'text-stone-600 hover:text-stone-900'
                 }`}
               >
@@ -1921,7 +1921,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       value={directTitle}
                       onChange={(e) => setDirectTitle(e.target.value)}
                       placeholder="Contoh: Beli Sepatu Untuk Seserahan"
-                      className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                      className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                       required
                     />
                   </div>
@@ -1934,7 +1934,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       <select
                         value={directCategoryId}
                         onChange={(e) => setDirectCategoryId(e.target.value)}
-                        className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white"
+                        className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                         required
                       >
                         {budgetCategories.map((cat) => (
@@ -1960,7 +1960,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                             setDirectPaidAmount(val);
                           }
                         }}
-                        className="w-full px-3 py-2 font-mono text-sm font-semibold border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                        className="w-full px-3 py-2 font-mono text-sm font-semibold glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                         required
                       />
                       <div className="text-[11px] text-stone-500 font-mono mt-1">
@@ -1970,7 +1970,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   </div>
 
                   {/* STATUS PEMBAYARAN: PILIHAN UTAMA BUDGETING */}
-                  <div className="p-3 bg-stone-50 border border-stone-200 rounded-lg space-y-2.5">
+                  <div className="p-3 glass-inset rounded-lg space-y-2.5">
                     <label className="block font-semibold text-stone-900 text-xs">
                       Status Pembayaran Item Ini:
                     </label>
@@ -1983,7 +1983,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                         className={`p-3 rounded-lg border text-left transition-all ${
                           !directIsPaid
                             ? 'bg-amber-50 border-amber-300 ring-1 ring-amber-400'
-                            : 'bg-white border-stone-200 hover:border-stone-300'
+                            : "bg-white/70 border-white/60 hover:border-stone-300"
                         }`}
                       >
                         <div className="flex items-center gap-2">
@@ -2015,7 +2015,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                         className={`p-3 rounded-lg border text-left transition-all ${
                           directIsPaid
                             ? 'bg-emerald-50 border-emerald-300 ring-1 ring-emerald-400'
-                            : 'bg-white border-stone-200 hover:border-stone-300'
+                            : "bg-white/70 border-white/60 hover:border-stone-300"
                         }`}
                       >
                         <div className="flex items-center gap-2">
@@ -2056,7 +2056,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                             type="date"
                             value={directDueDate}
                             onChange={(e) => setDirectDueDate(e.target.value)}
-                            className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white font-mono"
+                            className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 font-mono"
                           />
                         </div>
                       </div>
@@ -2083,7 +2083,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                             step={10000}
                             value={directPaidAmount}
                             onChange={(e) => setDirectPaidAmount(Number(e.target.value))}
-                            className="w-full px-3 py-2 font-mono text-sm font-bold border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                            className="w-full px-3 py-2 font-mono text-sm font-bold glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                             required
                           />
 
@@ -2120,7 +2120,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                             type="date"
                             value={directPaymentDate}
                             onChange={(e) => setDirectPaymentDate(e.target.value)}
-                            className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white font-mono"
+                            className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 font-mono"
                             required
                           />
                         </div>
@@ -2137,7 +2137,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       value={directNotes}
                       onChange={(e) => setDirectNotes(e.target.value)}
                       placeholder="Contoh: Toko Sepatu Jaya Mall Kelapa Gading"
-                      className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                      className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                     />
                   </div>
                 </>
@@ -2149,7 +2149,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       Pilih Vendor yang Ingin Dibayar
                     </label>
                     {vendors.length === 0 ? (
-                      <div className="p-3 bg-stone-50 border border-stone-200 rounded text-stone-500">
+                      <div className="p-3 glass-inset rounded text-stone-500">
                         Belum ada vendor terdaftar.{' '}
                         <button
                           type="button"
@@ -2163,7 +2163,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       <select
                         value={selectedVendorId}
                         onChange={(e) => setSelectedVendorId(e.target.value)}
-                        className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white"
+                        className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                         required
                       >
                         {vendors.map((v) => {
@@ -2187,7 +2187,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       <select
                         value={vendorPaymentType}
                         onChange={(e) => setVendorPaymentType(e.target.value as PaymentType)}
-                        className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white"
+                        className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                       >
                         <option value="dp1">DP 1 (Uang Muka)</option>
                         <option value="dp2">DP 2 (Termin Berjalan)</option>
@@ -2204,7 +2204,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                         type="date"
                         value={vendorPaymentDate}
                         onChange={(e) => setVendorPaymentDate(e.target.value)}
-                        className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white font-mono"
+                        className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 font-mono"
                         required
                       />
                     </div>
@@ -2219,7 +2219,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       step={100000}
                       value={vendorPaymentAmount}
                       onChange={(e) => setVendorPaymentAmount(Number(e.target.value))}
-                      className="w-full px-3 py-2 font-mono text-sm font-semibold border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                      className="w-full px-3 py-2 font-mono text-sm font-semibold glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                       required
                     />
                     <div className="text-[11px] text-stone-500 font-mono mt-1">
@@ -2236,7 +2236,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       value={vendorPaymentNotes}
                       onChange={(e) => setVendorPaymentNotes(e.target.value)}
                       placeholder="Contoh: Transfer via BCA ref #98328"
-                      className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                      className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                     />
                   </div>
                 </>
@@ -2270,8 +2270,8 @@ export const BudgetIntelligenceView: React.FC = () => {
       {/* MODAL 2: CATAT PEMBAYARAN ITEM (BAYAR / LUNASI) */}
       {/* ======================================================== */}
       {isSettleModalOpen && settlingItem && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-stone-100">
               <div>
                 <h3 className="font-bold text-stone-900 text-sm sm:text-base">
@@ -2295,7 +2295,7 @@ export const BudgetIntelligenceView: React.FC = () => {
             </div>
 
             {/* Item Information Card */}
-            <div className="mt-4 p-3 bg-stone-50 border border-stone-200 rounded-lg space-y-1">
+            <div className="mt-4 p-3 glass-inset rounded-lg space-y-1">
               <div className="text-xs font-bold text-stone-900">
                 {settlingItem.name}
               </div>
@@ -2311,7 +2311,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 </span>
               </div>
               {settlingItem.payments.length > 0 && (
-                <div className="text-[11px] text-blue-700 font-medium">
+                <div className="text-[11px] text-pink-700 font-medium">
                   Sudah dibayar sebelumnya: {formatCurrency(settlingItem.payments.reduce((s, p) => s + p.amount, 0))}
                 </div>
               )}
@@ -2327,8 +2327,8 @@ export const BudgetIntelligenceView: React.FC = () => {
                     onClick={() => setSettleIsFull(true)}
                     className={`py-2 px-3 rounded-lg border text-center font-medium transition-all ${
                       settleIsFull
-                        ? 'bg-stone-900 text-white border-stone-900'
-                        : 'bg-white text-stone-700 border-stone-300 hover:bg-stone-50'
+                        ? 'bg-emerald-800 text-white border-stone-900'
+                        : "bg-white/70 border-white/60 hover:bg-stone-50"
                     }`}
                   >
                     Pelunasan Penuh (Lunas)
@@ -2338,8 +2338,8 @@ export const BudgetIntelligenceView: React.FC = () => {
                     onClick={() => setSettleIsFull(false)}
                     className={`py-2 px-3 rounded-lg border text-center font-medium transition-all ${
                       !settleIsFull
-                        ? 'bg-stone-900 text-white border-stone-900'
-                        : 'bg-white text-stone-700 border-stone-300 hover:bg-stone-50'
+                        ? 'bg-emerald-800 text-white border-stone-900'
+                        : "bg-white/70 border-white/60 hover:bg-stone-50"
                     }`}
                   >
                     Bayar Sebagian (DP)
@@ -2370,7 +2370,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   step={10000}
                   value={settleAmount}
                   onChange={(e) => setSettleAmount(Number(e.target.value))}
-                  className="w-full px-3 py-2 font-mono text-sm font-bold border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 font-mono text-sm font-bold glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                   required
                 />
 
@@ -2386,7 +2386,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                       {settleIsFull && (
                         <>
                           {diff === 0 ? (
-                            <div className="text-[11px] text-stone-600 bg-stone-50 p-2 rounded border border-stone-200 flex items-center gap-1.5">
+                            <div className="text-[11px] text-stone-600 glass-inset p-2 rounded flex items-center gap-1.5">
                               <CheckCircle2 className="w-3.5 h-3.5 text-stone-600 shrink-0" />
                               <span>Realisasi pembayaran tepat sesuai target budget ({formatCurrency(initialBudget)}).</span>
                             </div>
@@ -2420,7 +2420,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   type="date"
                   value={settleDate}
                   onChange={(e) => setSettleDate(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white font-mono"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 font-mono"
                   required
                 />
               </div>
@@ -2434,7 +2434,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   value={settleNotes}
                   onChange={(e) => setSettleNotes(e.target.value)}
                   placeholder="Contoh: Transfer BCA kuitansi #8762"
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                 />
               </div>
 
@@ -2465,8 +2465,8 @@ export const BudgetIntelligenceView: React.FC = () => {
       {/* MODAL 3: UBAH ITEM RENCANA BELANJA */}
       {/* ======================================================== */}
       {isEditItemModalOpen && editingBudgetItem && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-stone-100">
               <h3 className="font-bold text-stone-900 text-sm sm:text-base">
                 Ubah Item Rencana Belanja
@@ -2493,7 +2493,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   type="text"
                   value={editItemTitle}
                   onChange={(e) => setEditItemTitle(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                   required
                 />
               </div>
@@ -2505,7 +2505,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 <select
                   value={editItemCategoryId}
                   onChange={(e) => setEditItemCategoryId(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                   required
                 >
                   {budgetCategories.map((cat) => (
@@ -2525,7 +2525,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   step={50000}
                   value={editItemBudget}
                   onChange={(e) => setEditItemBudget(Number(e.target.value))}
-                  className="w-full px-3 py-2 font-mono text-sm font-semibold border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 font-mono text-sm font-semibold glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                   required
                 />
                 <div className="text-[11px] text-stone-500 font-mono mt-1">
@@ -2541,7 +2541,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   type="date"
                   value={editItemDueDate}
                   onChange={(e) => setEditItemDueDate(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 bg-white font-mono"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 font-mono"
                 />
               </div>
 
@@ -2553,7 +2553,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   type="text"
                   value={editItemNotes}
                   onChange={(e) => setEditItemNotes(e.target.value)}
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                 />
               </div>
 
@@ -2584,8 +2584,8 @@ export const BudgetIntelligenceView: React.FC = () => {
       {/* MODAL 4: TAMBAH / UBAH POS ANGGARAN (DENGAN PRESET CEPAT) */}
       {/* ======================================================== */}
       {isCategoryModalOpen && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-stone-100">
               <div>
                 <h3 className="font-bold text-stone-900 text-sm sm:text-base">
@@ -2613,7 +2613,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                 <label className="block text-[11px] font-medium text-stone-500 mb-1.5 uppercase font-mono">
                   Rekomendasi Cepat Pos Pernikahan:
                 </label>
-                <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto p-1 border border-stone-200 rounded-lg bg-stone-50/50">
+                <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto p-1 glass-inset rounded-lg">
                   {CATEGORY_PRESETS.map((preset) => (
                     <button
                       key={preset.name}
@@ -2622,7 +2622,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                         setCatName(preset.name);
                         setCatBudget(preset.defaultBudget);
                       }}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-white hover:bg-stone-200 border border-stone-200 rounded-md text-[11px] text-stone-800 transition-colors"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 glass-inset hover:bg-white/80 rounded-md text-[11px] text-stone-800 transition-colors"
                     >
                       <span>{preset.icon}</span>
                       <span>{preset.name}</span>
@@ -2642,7 +2642,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   value={catName}
                   onChange={(e) => setCatName(e.target.value)}
                   placeholder="Contoh: Katering & Prasmanan"
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                   required
                 />
               </div>
@@ -2672,7 +2672,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   step={500000}
                   value={catBudget}
                   onChange={(e) => setCatBudget(Number(e.target.value))}
-                  className="w-full px-3 py-2 font-mono text-sm font-semibold border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 font-mono text-sm font-semibold glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                   required
                 />
                 <div className="text-[11px] text-stone-500 font-mono mt-1">
@@ -2704,8 +2704,8 @@ export const BudgetIntelligenceView: React.FC = () => {
       {/* MODAL 5: UBAH TOTAL TARGET ANGGARAN ACARA */}
       {/* ======================================================== */}
       {isTotalBudgetModalOpen && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-sm w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-stone-100">
               <h3 className="font-bold text-stone-900 text-sm">
                 Ubah Total Target Anggaran Acara
@@ -2730,7 +2730,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                   step={5000000}
                   value={eventTotalBudget}
                   onChange={(e) => setEventTotalBudget(Number(e.target.value))}
-                  className="w-full px-3 py-2 font-mono text-sm font-semibold border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800"
+                  className="w-full px-3 py-2 font-mono text-sm font-semibold glass-input rounded-lg focus:ring-1 focus:ring-emerald-700"
                   required
                 />
                 <div className="text-[11px] text-stone-500 font-mono mt-1">
@@ -2744,7 +2744,7 @@ export const BudgetIntelligenceView: React.FC = () => {
                     type="checkbox"
                     checked={autoRebalanceAfterSave}
                     onChange={(e) => setAutoRebalanceAfterSave(e.target.checked)}
-                    className="mt-0.5 rounded text-stone-900 focus:ring-stone-800"
+                    className="mt-0.5 rounded text-stone-900 focus:ring-emerald-700"
                   />
                   <span className="text-[11px] text-stone-600 leading-snug">
                     Sesuaikan proporsi pos-pos anggaran secara otomatis mengikuti target baru ini.
@@ -2776,8 +2776,8 @@ export const BudgetIntelligenceView: React.FC = () => {
       {/* MODAL 6: KONFIRMASI HAPUS (AMAN UNTUK USER AWAM) */}
       {/* ======================================================== */}
       {isDeleteConfirmOpen && deleteTarget && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full p-4 sm:p-6 border border-stone-200 text-xs">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-sm w-full p-4 sm:p-6 text-xs">
             <div className="flex items-center gap-3 text-rose-600 mb-3">
               <div className="p-2 bg-rose-50 rounded-full">
                 <AlertTriangle className="w-5 h-5 text-rose-600" />

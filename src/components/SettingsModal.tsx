@@ -48,9 +48,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-      <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+    <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+      <div className="glass-modal rounded-2xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between pb-3 border-b border-stone-200/60">
           <div>
             <h3 className="font-bold text-stone-900 text-sm sm:text-base">Pengaturan Proyek</h3>
             <p className="text-xs text-stone-500">Parameter, tanggal acuan, dan pagu anggaran</p>
@@ -58,7 +58,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-lg text-stone-400 hover:text-stone-600"
+            className="p-1 rounded-lg text-stone-400 hover:text-stone-600 transition-colors"
             aria-label="Tutup Modal"
           >
             <X className="w-4 h-4" />
@@ -74,13 +74,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+              className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
               required
             />
           </div>
 
           {/* Event Anchor Date */}
-          <div className="bg-stone-50 p-3 sm:p-3.5 rounded-xl border border-stone-200 space-y-2">
+          <div className="glass-inset p-3 sm:p-3.5 rounded-xl space-y-2">
             <div className="flex items-center gap-1.5 text-stone-900 text-xs font-semibold">
               <Calendar className="w-3.5 h-3.5 text-stone-700" />
               <span>Tanggal Acuan Acara (Hari H)</span>
@@ -89,7 +89,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
               type="date"
               value={eventDate}
               onChange={(e) => setEventDate(e.target.value)}
-              className="w-full px-3 py-2 text-sm sm:text-xs font-mono font-medium text-stone-900 border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none bg-white"
+              className="w-full px-3 py-2 text-sm sm:text-xs font-mono font-medium text-stone-900 glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
               required
             />
             {dateChanged && (
@@ -112,7 +112,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                 step={1000000}
                 value={totalBudget}
                 onChange={(e) => setTotalBudget(Number(e.target.value))}
-                className="w-full px-3 py-2 text-sm sm:text-xs font-mono border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                className="w-full px-3 py-2 text-sm sm:text-xs font-mono glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                 required
               />
               <span className="text-[10px] text-stone-500 font-mono mt-0.5 block">
@@ -128,7 +128,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                 type="number"
                 value={estimatedGuests}
                 onChange={(e) => setEstimatedGuests(Number(e.target.value))}
-                className="w-full px-3 py-2 text-sm sm:text-xs font-mono border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                className="w-full px-3 py-2 text-sm sm:text-xs font-mono glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                 required
               />
             </div>
@@ -139,7 +139,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
             <select
               value={theme}
               onChange={(e) => setTheme(e.target.value as EventTheme)}
-              className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none bg-white font-medium"
+              className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none font-medium"
             >
               <option value="modern">Modern Minimalis</option>
               <option value="traditional">Adat Tradisional Formal</option>
@@ -148,7 +148,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
             </select>
           </div>
 
-          <div className="flex flex-col-reverse sm:flex-row items-center justify-between pt-3 border-t border-stone-100 gap-2">
+          <div className="flex flex-col-reverse sm:flex-row items-center justify-between pt-3 border-t border-stone-200/60 gap-2">
             {saveSuccess ? (
               <span className="text-xs text-emerald-700 font-medium flex items-center gap-1">
                 <Check className="w-3.5 h-3.5" /> Pengaturan tersimpan
@@ -176,7 +176,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
         </form>
 
         {/* Danger Zone */}
-        <div className="mt-6 pt-4 border-t border-stone-200">
+        <div className="mt-6 pt-4 border-t border-white/60">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <div className="text-xs font-semibold text-stone-900">Mulai Ulang Proyek</div>
@@ -186,7 +186,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
               <button
                 type="button"
                 onClick={() => setShowResetConfirm(true)}
-                className="px-3 py-1.5 text-xs text-stone-600 hover:text-stone-900 border border-stone-200 hover:bg-stone-100 rounded-lg font-medium self-start sm:self-auto"
+                className="px-3 py-1.5 text-xs text-stone-600 hover:text-stone-900 glass-inset hover:bg-white/80 rounded-lg font-medium self-start sm:self-auto"
               >
                 Reset Data
               </button>

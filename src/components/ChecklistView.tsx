@@ -123,7 +123,7 @@ export const ChecklistView: React.FC = () => {
   return (
     <div className="space-y-4 sm:space-y-6">
       {/* Header & Controls */}
-      <div className="bg-white border border-stone-200 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+      <div className="glass-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-mono uppercase tracking-wider text-stone-500 font-medium">
@@ -143,7 +143,7 @@ export const ChecklistView: React.FC = () => {
         <button
           type="button"
           onClick={handleOpenAddModal}
-          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 sm:py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-lg shadow-sm transition-all active:scale-[0.98] w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 sm:py-2 bg-emerald-800 hover:bg-emerald-700 text-white shadow-xs text-xs font-semibold rounded-lg shadow-sm transition-all active:scale-[0.98] w-full sm:w-auto"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Tugas Baru</span>
@@ -151,7 +151,7 @@ export const ChecklistView: React.FC = () => {
       </div>
 
       {/* Filter and Query Bar */}
-      <div className="bg-white border border-stone-200 rounded-xl p-3 sm:p-4 space-y-2.5 sm:space-y-0 sm:flex sm:flex-wrap sm:items-center sm:gap-3 shadow-xs">
+      <div className="glass-card rounded-xl p-3 sm:p-4 space-y-2.5 sm:space-y-0 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
         <div className="relative flex-1 min-w-[200px]">
           <Search className="w-3.5 h-3.5 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
           <input
@@ -159,7 +159,7 @@ export const ChecklistView: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Cari tugas atau kategori..."
-            className="w-full pl-9 pr-3 py-2 text-sm sm:text-xs border border-stone-200 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none bg-stone-50/50 sm:bg-white"
+            className="w-full pl-9 pr-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
           />
         </div>
 
@@ -168,7 +168,7 @@ export const ChecklistView: React.FC = () => {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full sm:w-auto px-2.5 py-2 text-sm sm:text-xs border border-stone-200 rounded-lg bg-white font-medium"
+              className="w-full sm:w-auto px-2.5 py-2 text-sm sm:text-xs glass-input rounded-lg font-medium"
             >
               <option value="all">Semua Kategori ({tasks.length})</option>
               {categories.map((c) => (
@@ -183,7 +183,7 @@ export const ChecklistView: React.FC = () => {
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value as 'all' | 'pending' | 'completed')}
-              className="w-full sm:w-auto px-2.5 py-2 text-sm sm:text-xs border border-stone-200 rounded-lg bg-white font-medium"
+              className="w-full sm:w-auto px-2.5 py-2 text-sm sm:text-xs glass-input rounded-lg font-medium"
             >
               <option value="all">Semua Status</option>
               <option value="pending">Belum Selesai</option>
@@ -196,20 +196,20 @@ export const ChecklistView: React.FC = () => {
       {/* Phased Task Groups */}
       <div className="space-y-4 sm:space-y-5">
         {timelineGroups.length === 0 ? (
-          <div className="bg-white border border-stone-200 rounded-xl p-8 sm:p-12 text-center text-xs text-stone-400">
+          <div className="glass-card rounded-xl p-8 sm:p-12 text-center text-xs text-stone-400">
             Tidak ada tugas yang sesuai dengan kriteria filter yang dipilih.
           </div>
         ) : (
           timelineGroups.map((group, gIdx) => (
-            <div key={gIdx} className="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-xs">
-              <div className="px-4 sm:px-5 py-3 bg-stone-50/70 border-b border-stone-200 flex items-center justify-between gap-2">
+            <div key={gIdx} className="glass-strong rounded-xl overflow-hidden">
+              <div className="px-4 sm:px-5 py-3 bg-gradient-to-r from-emerald-50/60 to-pink-50/40 border-b border-emerald-100 flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-stone-700 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-pink-500 shrink-0" />
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-900 truncate">
                     {group.label}
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono font-medium text-stone-500 bg-stone-100 px-2 py-0.5 rounded border border-stone-200 shrink-0">
+                <span className="text-[10px] font-mono font-medium text-stone-500 bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold shrink-0">
                   {group.tasks.filter((t) => t.isCompleted).length}/{group.tasks.length} Selesai
                 </span>
               </div>
@@ -246,7 +246,7 @@ export const ChecklistView: React.FC = () => {
                           {task.title}
                         </div>
                         <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1 text-[10px] sm:text-[11px] text-stone-500">
-                          <span className="px-1.5 py-0.2 rounded bg-stone-100 text-stone-600 border border-stone-200/80 font-sans">
+                          <span className="px-1.5 py-0.2 rounded bg-white/50 text-stone-600 border border-white/60 font-sans">
                             {task.category}
                           </span>
                           <span>•</span>
@@ -265,10 +265,10 @@ export const ChecklistView: React.FC = () => {
                       <span
                         className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded font-medium ${
                           task.priority === 'high'
-                            ? 'bg-rose-50 text-rose-700 border border-rose-200'
+                            ? 'bg-pink-100 text-pink-800 border border-pink-200 font-semibold'
                             : task.priority === 'medium'
-                            ? 'bg-stone-100 text-stone-700 border border-stone-200'
-                            : 'bg-stone-50 text-stone-500 border border-stone-200'
+                            ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                            : 'bg-white/50 text-stone-500 border border-white/60'
                         }`}
                       >
                         {task.priority === 'high' ? 'Tinggi' : task.priority === 'medium' ? 'Sedang' : 'Rendah'}
@@ -303,16 +303,16 @@ export const ChecklistView: React.FC = () => {
 
       {/* Modal Add / Edit Task */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+        <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-modal rounded-2xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-stone-200/60">
               <h3 className="font-bold text-stone-900 text-sm sm:text-base">
                 {editingTask ? 'Ubah Rincian Tugas' : 'Tambah Tugas Baru'}
               </h3>
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="p-1.5 rounded-lg text-stone-400 hover:text-stone-600"
+                className="p-1.5 rounded-lg text-stone-400 hover:text-stone-600 transition-colors"
                 aria-label="Tutup Modal"
               >
                 <X className="w-4 h-4" />
@@ -329,7 +329,7 @@ export const ChecklistView: React.FC = () => {
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
                   placeholder="Contoh: Konfirmasi final porsi katering"
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                   required
                 />
               </div>
@@ -343,7 +343,7 @@ export const ChecklistView: React.FC = () => {
                   value={formCategory}
                   onChange={(e) => setFormCategory(e.target.value)}
                   placeholder="Contoh: Venue & Katering"
-                  className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                  className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                   required
                 />
               </div>
@@ -359,7 +359,7 @@ export const ChecklistView: React.FC = () => {
                     max={500}
                     value={formRelativeDays}
                     onChange={(e) => setFormRelativeDays(Number(e.target.value))}
-                    className="w-full px-3 py-2 text-sm sm:text-xs font-mono border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                    className="w-full px-3 py-2 text-sm sm:text-xs font-mono glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                     required
                   />
                   <span className="text-[10px] text-stone-400 font-mono mt-0.5 block">
@@ -374,7 +374,7 @@ export const ChecklistView: React.FC = () => {
                   <select
                     value={formPriority}
                     onChange={(e) => setFormPriority(e.target.value as 'low' | 'medium' | 'high')}
-                    className="w-full px-3 py-2 text-sm sm:text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none bg-white font-medium"
+                    className="w-full px-3 py-2 text-sm sm:text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none font-medium"
                   >
                     <option value="high">Tinggi</option>
                     <option value="medium">Sedang</option>
@@ -383,7 +383,7 @@ export const ChecklistView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-2 pt-3 border-t border-stone-100">
+              <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-2 pt-3 border-t border-stone-200/60">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}

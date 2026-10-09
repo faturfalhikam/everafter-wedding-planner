@@ -103,8 +103,8 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-4 sm:p-6 border border-stone-200 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 glass-overlay flex items-center justify-center p-3 sm:p-4">
+      <div className="glass-modal rounded-2xl max-w-lg w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-stone-100">
           <div>
@@ -150,7 +150,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
                 type="button"
                 onClick={handleTriggerSync}
                 disabled={isSyncing || isManualSyncing}
-                className="px-2.5 py-1.5 text-xs font-medium bg-white text-emerald-800 border border-emerald-200 rounded-lg hover:bg-emerald-100/60 transition-colors shrink-0 flex items-center gap-1 disabled:opacity-50"
+                className="px-2.5 py-1.5 text-xs font-medium glass-input text-emerald-800 rounded-lg hover:bg-emerald-100/60 transition-colors shrink-0 flex items-center gap-1 disabled:opacity-50"
               >
                 <RefreshCw
                   className={`w-3 h-3 ${isSyncing || isManualSyncing ? 'animate-spin' : ''}`}
@@ -205,7 +205,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
 
         {/* Share Section (If Cloud Configured) */}
         {isCloudConfigured && (
-          <div className="mt-4 p-3.5 bg-stone-50 border border-stone-200 rounded-xl space-y-3">
+          <div className="mt-4 p-3.5 glass-inset rounded-xl space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-stone-900 flex items-center gap-1.5">
                 <Share2 className="w-3.5 h-3.5 text-stone-600" /> Bagikan Akses Pasangan
@@ -225,7 +225,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
                   type="text"
                   readOnly
                   value={cloudShareCode || event?.id || ''}
-                  className="w-full px-2.5 py-1.5 text-xs bg-white border border-stone-200 rounded-lg text-stone-800 font-mono font-bold tracking-wider select-all"
+                  className="w-full px-2.5 py-1.5 text-xs glass-input rounded-lg text-stone-800 font-mono font-bold tracking-wider select-all"
                 />
                 <button
                   type="button"
@@ -248,7 +248,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
                   type="text"
                   readOnly
                   value={inviteLink}
-                  className="w-full px-2.5 py-1.5 text-[11px] bg-white border border-stone-200 rounded-lg text-stone-600 select-all font-mono truncate"
+                  className="w-full px-2.5 py-1.5 text-[11px] glass-input rounded-lg text-stone-600 select-all font-mono truncate"
                 />
                 <button
                   type="button"
@@ -269,7 +269,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
             Peran Aktif di Perangkat Ini
           </div>
           {/* Primary Owner */}
-          <div className="p-2.5 rounded-lg border border-stone-200 bg-stone-50/60 flex items-center justify-between gap-2">
+          <div className="p-2.5 rounded-lg glass-inset flex items-center justify-between gap-2">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5 flex-wrap">
                 <span className="text-xs font-semibold text-stone-900 truncate">
@@ -288,7 +288,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
               className={`text-xs px-3 py-1.5 rounded-md font-semibold transition-colors shrink-0 ${
                 currentUser.role === 'owner'
                   ? 'bg-stone-900 text-white'
-                  : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-100'
+                  : 'bg-white/60 text-stone-700 border border-white/60 hover:bg-white/85'
               }`}
             >
               {currentUser.role === 'owner' ? 'Aktif' : 'Pilih'}
@@ -296,7 +296,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
           </div>
 
           {/* Partner / Editor */}
-          <div className="p-2.5 rounded-lg border border-stone-200 bg-stone-50/60 flex items-center justify-between gap-2">
+          <div className="p-2.5 rounded-lg glass-inset flex items-center justify-between gap-2">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5 flex-wrap">
                 <span className="text-xs font-semibold text-stone-900 truncate">
@@ -315,7 +315,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
               className={`text-xs px-3 py-1.5 rounded-md font-semibold transition-colors shrink-0 ${
                 currentUser.role === 'editor'
                   ? 'bg-stone-900 text-white'
-                  : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-100'
+                  : 'bg-white/60 text-stone-700 border border-white/60 hover:bg-white/85'
               }`}
             >
               {currentUser.role === 'editor' ? 'Aktif' : 'Pilih'}
@@ -335,7 +335,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
                 type="text"
                 value={partnerNameInput}
                 onChange={(e) => setPartnerNameInput(e.target.value)}
-                className="w-full px-2.5 py-1.5 text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                className="w-full px-2.5 py-1.5 text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                 required
               />
             </div>
@@ -345,7 +345,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
                 type="email"
                 value={partnerEmailInput}
                 onChange={(e) => setPartnerEmailInput(e.target.value)}
-                className="w-full px-2.5 py-1.5 text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none"
+                className="w-full px-2.5 py-1.5 text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none"
                 required
               />
             </div>
@@ -368,7 +368,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
 
         {/* Load Plan by Code Section */}
         {isCloudConfigured && (
-          <form onSubmit={handleLoadPlan} className="mt-4 pt-3 border-t border-stone-100">
+          <form onSubmit={handleLoadPlan} className="mt-4 pt-3 border-t border-stone-200/60">
             <label className="block text-[11px] font-semibold text-stone-800 uppercase font-mono tracking-wider mb-1">
               Buka / Sinkronkan Rencana Lain via Kode
             </label>
@@ -381,7 +381,7 @@ export const CollaborationModal: React.FC<CollaborationModalProps> = ({ isOpen, 
                 placeholder="Contoh: WED-8AK2"
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
-                className="w-full px-2.5 py-1.5 text-xs border border-stone-300 rounded-lg focus:ring-1 focus:ring-stone-800 focus:outline-none font-mono"
+                className="w-full px-2.5 py-1.5 text-xs glass-input rounded-lg focus:ring-1 focus:ring-emerald-700 focus:outline-none font-mono"
               />
               <button
                 type="submit"
